@@ -20,3 +20,8 @@
 |2739. 구구단|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2739.%E2%80%85%EA%B5%AC%EA%B5%AC%EB%8B%A8/README.md)|
 |2741. N 찍기|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2741.%E2%80%85N%E2%80%85%EC%B0%8D%EA%B8%B0/README.md)|
 |27433. 팩토리얼 2|[링크](./%EB%B0%B1%EC%A4%80/Bronze/27433.%E2%80%85%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC%E2%80%852/%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC%E2%80%852.js)|
+## 📚 프로그래머스
+### 🚀 unrated
+| 문제번호 | 링크 |
+| ----- | ----- |
+|181896. 첫 번째로 나오는 음수|[링크](./%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/unrated/181896.%E2%80%85%EC%B2%AB%E2%80%85%EB%B2%88%EC%A7%B8%EB%A1%9C%E2%80%85%EB%82%98%EC%98%A4%EB%8A%94%E2%80%85%EC%9D%8C%EC%88%98/README.md)|
