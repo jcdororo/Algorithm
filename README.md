@@ -34,6 +34,7 @@
 |27433. 팩토리얼 2|[링크](./%EB%B0%B1%EC%A4%80/Bronze/27433.%E2%80%85%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC%E2%80%852/%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC%E2%80%852.js)|
 |27866. 문자와 문자열|[링크](./%EB%B0%B1%EC%A4%80/Bronze/27866.%E2%80%85%EB%AC%B8%EC%9E%90%EC%99%80%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4/README.md)|
 |3052. 나머지|[링크](./%EB%B0%B1%EC%A4%80/Bronze/3052.%E2%80%85%EB%82%98%EB%A8%B8%EC%A7%80/README.md)|
+|8958. OX퀴즈|[링크](./%EB%B0%B1%EC%A4%80/Bronze/8958.%E2%80%85OX%ED%80%B4%EC%A6%88/README.md)|
 ## 📚 프로그래머스
 ### 🚀 unrated
 | 문제번호 | 링크 |
