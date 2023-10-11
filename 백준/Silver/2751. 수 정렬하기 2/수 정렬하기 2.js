@@ -1,22 +1,22 @@
-// /dev/stdin
-// ./input.txt
-const input = require('fs')
-              .readFileSync('/dev/stdin')
-              .toString()
-              .split('\n')
-              .map(Number);
+/* /dev/stdin */
+let fs = require('fs');
+let input = fs.readFileSync('/dev/stdin').toString().split('\n').map(Number);
 
-const a = input[0];
-let arr = [];
+const count = input[0];
 let answer = '';
+let newArr = [];
 
-for(let i = 1; i <= a; i++){
-  arr.push(input[i])
+for(let i = 1; i < count+1; i++){
+  newArr.push(input[i]);
 }
-arr.sort((a, b) => a - b);
 
 
-answer = arr.join('\n')
+newArr.sort(compare)
+
+console.log(newArr.join('\n'));
 
 
-console.log(answer)
+
+function compare(a, b)  {
+  return a-b;
+}
