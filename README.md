@@ -47,6 +47,10 @@
 |2869. 달팽이는 올라가고 싶다|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2869.%E2%80%85%EB%8B%AC%ED%8C%BD%EC%9D%B4%EB%8A%94%E2%80%85%EC%98%AC%EB%9D%BC%EA%B0%80%EA%B3%A0%E2%80%85%EC%8B%B6%EB%8B%A4/%EB%8B%AC%ED%8C%BD%EC%9D%B4%EB%8A%94%E2%80%85%EC%98%AC%EB%9D%BC%EA%B0%80%EA%B3%A0%E2%80%85%EC%8B%B6%EB%8B%A4.js)|
 |3052. 나머지|[링크](./%EB%B0%B1%EC%A4%80/Bronze/3052.%E2%80%85%EB%82%98%EB%A8%B8%EC%A7%80/%EB%82%98%EB%A8%B8%EC%A7%80.js)|
 |8958. OX퀴즈|[링크](./%EB%B0%B1%EC%A4%80/Bronze/8958.%E2%80%85OX%ED%80%B4%EC%A6%88/README.md)|
+### 🚀 Gold
+| 문제번호 | 링크 |
+| ----- | ----- |
+|1240. 노드사이의 거리|[링크](./%EB%B0%B1%EC%A4%80/Gold/1240.%E2%80%85%EB%85%B8%EB%93%9C%EC%82%AC%EC%9D%B4%EC%9D%98%E2%80%85%EA%B1%B0%EB%A6%AC/%EB%85%B8%EB%93%9C%EC%82%AC%EC%9D%B4%EC%9D%98%E2%80%85%EA%B1%B0%EB%A6%AC.js)|
 ### 🚀 Silver
 | 문제번호 | 링크 |
 | ----- | ----- |
