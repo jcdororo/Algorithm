@@ -52,6 +52,7 @@
 | ----- | ----- |
 |11404. 플로이드|[링크](./%EB%B0%B1%EC%A4%80/Gold/11404.%E2%80%85%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C/README.md)|
 |1240. 노드사이의 거리|[링크](./%EB%B0%B1%EC%A4%80/Gold/1240.%E2%80%85%EB%85%B8%EB%93%9C%EC%82%AC%EC%9D%B4%EC%9D%98%E2%80%85%EA%B1%B0%EB%A6%AC/README.md)|
+|1753. 최단경로|[링크](./%EB%B0%B1%EC%A4%80/Gold/1753.%E2%80%85%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C/%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C.js)|
 ### 🚀 Silver
 | 문제번호 | 링크 |
 | ----- | ----- |
