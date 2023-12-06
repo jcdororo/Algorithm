@@ -59,6 +59,7 @@
 |3052. 나머지|[링크](./%EB%B0%B1%EC%A4%80/Bronze/3052.%E2%80%85%EB%82%98%EB%A8%B8%EC%A7%80/%EB%82%98%EB%A8%B8%EC%A7%80.js)|
 |5597. 과제 안 내신 분．．？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5597.%E2%80%85%EA%B3%BC%EC%A0%9C%E2%80%85%EC%95%88%E2%80%85%EB%82%B4%EC%8B%A0%E2%80%85%EB%B6%84%EF%BC%8E%EF%BC%8E%EF%BC%9F/README.md)|
 |8958. OX퀴즈|[링크](./%EB%B0%B1%EC%A4%80/Bronze/8958.%E2%80%85OX%ED%80%B4%EC%A6%88/OX%ED%80%B4%EC%A6%88.js)|
+|9086. 문자열|[링크](./%EB%B0%B1%EC%A4%80/Bronze/9086.%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4/README.md)|
 ### 🚀 Gold
 | 문제번호 | 링크 |
 | ----- | ----- |
