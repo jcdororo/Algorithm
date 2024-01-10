@@ -5,8 +5,8 @@ let input = fs.readFileSync('dev/stdin').toString().split('\n')
 let result = '';
 
 for(let i = 0; i < input.length; i++) {
-  const word = input[i];
   let stack = [];
+  const word = input[i];
   let isBalance = true;
 
   if(word == '.') break;
@@ -30,14 +30,12 @@ for(let i = 0; i < input.length; i++) {
         isBalance = false;
         break;
       }
-    } else if(word[i] == '.') break;
+    }
   }
-
   if(stack.length > 0 || !isBalance) {
     result += 'no \n'
   } else {
     result += 'yes \n'
   }
-
 }
 console.log(result)
