@@ -1,34 +1,14 @@
+n = int(input())  # 도시의 개수
+distances = list(map(int, input().split()))  # 각 도시 간의 거리
+prices = list(map(int, input().split()))  # 각 도시의 리터당 기름 가격
 
-import sys
-n = int(sys.stdin.readline())
-road = list(map(int, sys.stdin.readline().split(' ')))
-gasStations = list(map(int, sys.stdin.readline().split(' ')))
+# 첫 번째 도시에서는 무조건 주유
+total_cost = distances[0] * prices[0]
+min_price = prices[0]
 
-minStation = min(gasStations[:-1])
-sum = sum(road)
-roadIndex = 0
-stationIndex = 0
-result = 0
+for i in range(1, n - 1):  # 마지막 도시는 이미 도착한 상태이므로 제외
+    if prices[i] < min_price:  # 현재 도시의 기름 가격이 이전 도시의 기름 가격보다 싸면
+        min_price = prices[i]  # 현재 도시의 기름 가격으로 갱신
+    total_cost += min_price * distances[i]  # 최소 기름 가격으로 현재 도시까지 주유
 
-for i, price in enumerate(gasStations):
-  if gasStations[stationIndex] >= gasStations[stationIndex+1]:
-    result += gasStations[stationIndex]*road[roadIndex]
-    sum -= road[roadIndex]
-    roadIndex += 1
-    stationIndex += 1
-  else:
-    if gasStations[stationIndex] <= minStation:
-      result += gasStations[stationIndex]*sum
-      break
-    else:
-      result += gasStations[stationIndex]*road[roadIndex]
-      sum -= road[roadIndex]
-      roadIndex += 1
-      stationIndex += 1
-
-  if stationIndex >= len(gasStations) or roadIndex >= len(road):
-    break
-
-print(result)
-  
-
+print(total_cost)
