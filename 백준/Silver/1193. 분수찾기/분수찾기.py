@@ -1,15 +1,15 @@
-X = int(input())
+import sys
+
+
+X = int(sys.stdin.readline().strip())
 
 line = 1
+
 while X > line:
-    X -= line
-    line += 1
+  X -= line
+  line += 1
 
-if line % 2 == 0:
-    numerator = X
-    denominator = line - X + 1
+if line % 2:
+  print(f'{line - X + 1}/{X}')
 else:
-    numerator = line - X + 1
-    denominator = X
-
-print(f"{numerator}/{denominator}")
+  print(f'{X}/{line - X + 1}')
