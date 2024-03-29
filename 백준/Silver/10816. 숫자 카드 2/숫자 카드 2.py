@@ -1,26 +1,24 @@
-# 입력 받기
-n = int(input())
-cards = list(map(int, input().split()))
-m = int(input())
-targets = list(map(int, input().split()))
+import sys
 
-# 각 숫자가 몇 개씩 있는지 저장할 딕셔너리 초기화
-card_count = {}
+N = int(sys.stdin.readline().strip())
+myCards = sys.stdin.readline().strip().split(' ')
+M = int(sys.stdin.readline().strip())
+findCards = sys.stdin.readline().strip().split(' ')
 
-# 카드 숫자들을 세기
-for card in cards:
-    if card in card_count:
-        card_count[card] += 1
-    else:
-        card_count[card] = 1
+dic = {}
 
-# 결과 출력
-result = []
-for target in targets:
-    if target in card_count:
-        result.append(card_count[target])
-    else:
-        result.append(0)
+for card in myCards:
+  if card in dic:
+    dic[card] += 1
+  else:
+    dic[card] = 1
 
-# 결과 출력
-print(' '.join(map(str, result)))
+answer = []
+
+for findCard in findCards:
+  if findCard in dic:
+    answer.append(str(dic[findCard]))
+  else:
+    answer.append('0')
+
+print(" ".join(answer))
