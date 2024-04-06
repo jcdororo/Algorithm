@@ -18,8 +18,8 @@ def middle(arr):
   right = len(temp) - 1
   mid = (left + right) // 2
 
-  # return temp[mid]
-  return temp[len(temp)//2]
+  return temp[mid]
+  # return temp[len(temp)//2]
 
 # 최빈값
 def maxCount(arr):
