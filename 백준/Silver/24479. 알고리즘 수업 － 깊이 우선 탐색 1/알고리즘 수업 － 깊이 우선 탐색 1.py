@@ -22,9 +22,9 @@ def dfs(node):
   graph[node].sort()
   race[node] = cnt
   
+  cnt += 1
   for i in graph[node]:
     if not visited[i]:
-      cnt += 1
       dfs(i)
       
 
