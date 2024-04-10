@@ -1,19 +1,17 @@
 import sys
 
-from collections import deque
 
-N = int(sys.stdin.readline().strip())
+n = int(sys.stdin.readline().strip())
 arr = list(map(int, sys.stdin.readline().strip().split(' ')))
 
-result = [-1] * N
-stack = deque()
+stack = []
+result = [-1] * n
 
-for i in range(N):
+for i in range(n):
+  while stack and arr[stack[-1]] < arr[i]:
+    pop = stack.pop()
+    result[pop] = arr[i]
 
-  while stack and (stack[-1][0] < arr[i]):
-    temp, index = stack.pop()
-    result[index] = arr[i]
-
-  stack.append([arr[i], i])
+  stack.append(i)
 
 print(*result)
