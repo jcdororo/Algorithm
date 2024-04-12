@@ -1,37 +1,31 @@
 import sys
-from sys import setrecursionlimit
-setrecursionlimit(10 ** 6)
+sys.setrecursionlimit(10 ** 6)
 
+N, M, R = map(int, sys.stdin.readline().strip().split(' '))
 
-N, M, R= map(int, sys.stdin.readline().strip().split(' '))
-
-graph = [[] for _ in range(N + 1)]
+result = [0] * (N + 1)
+cnt = 0
 visited = [False] * (N + 1)
-race = [0 for _ in range(N + 1)]
-cnt = 1
-
+graph = [[] for _ in range(N + 1)]
 for i in range(M):
-  u, v = map(int, sys.stdin.readline().strip().split(' '))
-  graph[u].append(v)
-  graph[v].append(u)
+  a, b = map(int, sys.stdin.readline().strip().split(' '))
+  graph[a].append(b)
+  graph[b].append(a)
 
 
 def dfs(node):
   global cnt
+  if visited[node] == True:
+    return
   visited[node] = True
   graph[node].sort()
-  race[node] = cnt
-  
   cnt += 1
+  result[node] = cnt
+
   for i in graph[node]:
-    if not visited[i]:
+    if visited[i] == False:
       dfs(i)
-      
-
+  
 dfs(R)
-
-# print(race)
-for i in range(1, len(race)):
-  print(race[i])
-
-
+for v in result[1:]:
+  print(v)
