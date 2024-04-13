@@ -1,18 +1,21 @@
+"""
+44272kb	236ms
+"""
 import sys
-from heapq import *                   # heapq 임포트
+from heapq import *
 
-N, M = map(int, sys.stdin.readline().strip().split(' '))
-cards = list(map(int, sys.stdin.readline().strip().split(' ')))
+N, M = map(int, sys.stdin.readline().split(' '))
+heap = list(map(int, sys.stdin.readline().split(' ')))
 
+heapify(heap)
 
-heapify(cards)
-cnt = 0
+total = 0
 
-for i in range(M):
-  temp1 = heappop(cards)
-  temp2 = heappop(cards)
+for _ in range(M):
+  temp = heappop(heap) + heappop(heap)
+  
 
-  heappush(cards, temp1 + temp2)
-  heappush(cards, temp1 + temp2)
+  heappush(heap, temp)
+  heappush(heap, temp)
 
-print(sum(cards))
+print(sum(heap))
