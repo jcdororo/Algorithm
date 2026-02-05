@@ -10,7 +10,7 @@ const Name = input[0];
 const N = Number(input[1]);
 
 let answer = "Z";
-let point = -1;
+let point = 0;
 
 for (let i = 2; i < N + 2; i++) {
   const result = calWord(Name, input[i]);
