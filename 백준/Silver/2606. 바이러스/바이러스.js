@@ -1,35 +1,38 @@
-/* /dev/stdin */
-let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+// /dev/stdin
+const fs = require("fs");
+let input = fs
+  .readFileSync("/dev/stdin")
+  .toString()
+  .split("\n")
+  .map((x) => x.replace("\r", ""));
 
-const n = Number(input[0]);
-const m = Number(input[1]);
-// let graph = Array(n+1).fill([]);
-let graph = [];
-for(let i = 1; i <= n; i++) graph[i] = [];
-let visited = Array(n+1).fill(false);
-let answer = 0;
+const N = Number(input[0]);
+const M = Number(input[1]);
 
+const visited = Array.from({ length: N + 1 }).fill(false);
+const graph = Array.from({ length: N + 1 }, () => []);
 
-for(let i = 2; i <= m + 1; i++){
-  let [a, b] = input[i].split(' ').map(Number);  
-  graph[a].push(b);
-  graph[b].push(a);
+let cnt = 0;
+
+for (let i = 2; i < M + 2; i++) {
+  const [x, y] = input[i].split(" ").map(Number);
+  graph[x].push(y);
+  graph[y].push(x);
 }
 
-// console.log(graph)
+const queue = [];
+queue.push(1);
+visited[1] = true;
 
-dfs(graph, 1, visited)
-
-console.log(answer - 1)
-
-function dfs(graph, v, visited) {
-  visited[v] = true;
-  answer++
-  
-  for(i of graph[v]){
-    if(!visited[i]) {
-      dfs(graph, i, visited);
+while (queue.length) {
+  const current = queue.shift();
+  for (const next of graph[current]) {
+    if (!visited[next]) {
+      visited[next] = true;
+      queue.push(next);
+      cnt++;
     }
   }
 }
+
+console.log(cnt);
