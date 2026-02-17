@@ -7,32 +7,28 @@ let input = fs
   .map((x) => x.replace("\r", ""));
 
 const N = Number(input[0]);
-const M = Number(input[1]);
-
-const visited = Array.from({ length: N + 1 }).fill(false);
-const graph = Array.from({ length: N + 1 }, () => []);
-
-let cnt = 0;
-
-for (let i = 2; i < M + 2; i++) {
+const T = Number(input[1]);
+let result = 0;
+const graph = Array.from({ length: N + 1 }, () => Array());
+for (let i = 2; i <= T + 1; i++) {
   const [x, y] = input[i].split(" ").map(Number);
   graph[x].push(y);
   graph[y].push(x);
 }
 
-const queue = [];
-queue.push(1);
-visited[1] = true;
+const visited = Array(N + 1).fill(false);
 
-while (queue.length) {
-  const current = queue.shift();
-  for (const next of graph[current]) {
+dfs(1);
+
+function dfs(V) {
+  visited[V] = true;
+
+  for (const next of graph[V]) {
     if (!visited[next]) {
-      visited[next] = true;
-      queue.push(next);
-      cnt++;
+      result++;
+      dfs(next);
     }
   }
 }
 
-console.log(cnt);
+console.log(result);
