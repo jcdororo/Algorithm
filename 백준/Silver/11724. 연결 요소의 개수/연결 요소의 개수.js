@@ -1,47 +1,40 @@
 // /dev/stdin
 const fs = require("fs");
-let input = fs.readFileSync('/dev/stdin').toString().trim().split('\n')
+let input = fs
+  .readFileSync("/dev/stdin")
+  .toString()
+  .split("\n")
+  .map((x) => x.replace("\r", ""));
 
-const [n, m] = input[0].split(' ').map(Number);
+const [N, M] = input[0].split(" ").map(Number);
 
-// 노드에 이어진 배열 만들기
-const arr = [];
-for(let i = 0; i <= n; i++) {
-  arr[i] = []
+const graph = Array.from({ length: N + 1 }, () => Array());
+
+for (let i = 1; i <= M; i++) {
+  const [x, y] = input[i].split(" ").map(Number);
+  graph[x].push(y);
+  graph[y].push(x);
 }
 
-const visited = [];
-for(let i = 1; i <= n; i++) {
-  visited[i] = false;
-}
+const visited = Array(N).fill(false);
 
-// 배열에 채워넣기
-// 방문 테이블 만들기
-for(let i = 1; i <= m; i++) {
-  const [u, v] = input[i].split(' ').map(Number)
-  arr[u].push(v)
-  arr[v].push(u)    
-}
-// console.log(arr)
-// console.log(visited)
+let result = 0;
 
-let cnt = 0;
-for(let i = 1; i < arr.length; i++) {
-  if(visited[i] == false) {
-    dfs(i)  
-    cnt++
+for (let i = 1; i <= N; i++) {
+  if (!visited[i]) {
+    result++;
+    visited[i] = true;
+    dfs(i);
   }
-  
 }
 
-function dfs(node) {
-  // console.log('node',node)
-  visited[node] = true;
-  for(const item of arr[node]) {
-    if(visited[item] == false) {  
-      dfs(item)  
+function dfs(i) {
+  for (const next of graph[i]) {
+    if (!visited[next]) {
+      visited[next] = true;
+      dfs(next);
     }
   }
 }
-console.log(cnt)
 
+console.log(result);
