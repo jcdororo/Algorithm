@@ -1,63 +1,55 @@
-/* /dev/stdin */
-let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+// /dev/stdin
+const fs = require("fs");
+let input = fs
+  .readFileSync("/dev/stdin")
+  .toString()
+  .split("\n")
+  .map((x) => x.replace("\r", ""));
 
 const N = Number(input[0]);
-const arrN = input[1].split(' ').map(Number);
+const numberCards = input[1].split(" ").map(Number);
 const M = Number(input[2]);
-const arrM = input[3].split(' ').map(Number);
+let myCards = input[3]
+  .split(" ")
+  .map(Number)
+  .sort((a, b) => a - b);
 
-arrN.sort((a, b) => a - b);
+const maps = new Map();
 
-let answer = '';
-
-for(let i = 0; i < M; i++){
-  const lower = lowerBound(arrN, arrM[i], 0, N);
-  const upper = upperBound(arrN, arrM[i], 0, N);
-
-  answer += (upper - lower) + ' ';
+for (const key of myCards) {
+  maps[key] = 0;
 }
 
-console.log(answer)
+let answer = "";
 
+for (const x of numberCards) {
+  const result = binarySearch(myCards, x);
+  if (result === 1) {
+    maps[x]++;
+  }
+}
 
+function binarySearch(cards, target) {
+  let left = 0;
+  let right = cards.length - 1;
 
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
 
-
-
-
-
-
-
-
-
-
-
-
-
-function lowerBound (arr, target, start, end) {
-  while(start < end) {
-    let mid = parseInt((start + end) / 2);
-    if(arr[mid] >= target) {
-      end = mid;
+    if (cards[mid] === target) {
+      return 1;
+    } else if (cards[mid] < target) {
+      left = mid + 1;
     } else {
-      start = mid + 1;
+      right = mid - 1;
     }
   }
-  return end;
+
+  return 0;
+}
+myCards = input[3].split(" ").map(Number);
+for (const number of myCards) {
+  answer += maps[number] + " ";
 }
 
-
-
-
-function upperBound (arr, target, start, end) {
-  while(start < end) {
-    let mid = parseInt((start + end) / 2);
-    if(arr[mid] > target) {
-      end = mid;
-    } else {
-      start = mid + 1;
-    }
-  }
-  return end;
-}
+console.log(answer);
