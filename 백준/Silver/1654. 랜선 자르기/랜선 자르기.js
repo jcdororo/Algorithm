@@ -1,37 +1,36 @@
-/* /dev/stdin */
-let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+// /dev/stdin
+const input = require("fs")
+  .readFileSync("/dev/stdin")
+  .toString()
+  .trim()
+  .split("\n");
 
+const [K, N] = input[0].split(" ").map(Number);
+const lines = [];
+for (let i = 1; i <= K; i++) {
+  lines.push(Number(input[i]));
+}
+let answer = 0;
 
-const [N, M] = input[0].split(' ').map(Number);
-let arr = [];
+parametricSearch(lines);
 
-for(let i = 1; i < N + 1; i++) {
-  arr.push(input[i]);
+function parametricSearch(lines) {
+  let left = 0;
+  let right = Math.max(...lines);
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    let count = 0;
+    for (const line of lines) {
+      count += Math.floor(line / mid);
+    }
+    if (count >= N) {
+      answer = mid;
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
 }
 
-let start = 1;
-let end = Math.max(...arr);
-let result = 0;
-
-while(start <= end) {
-  let mid = parseInt((start + end) / 2);
-  let total = 0;
-
-  for(x of arr){
-    total += parseInt(x / mid);
-  }
-
-  if(total >= M) {
-    result = mid;
-    start = mid + 1;
-  }
-
-  if(total < M){
-    end = mid - 1;
-  }
-  
-  
-}
-
-console.log(result)
+console.log(answer);
