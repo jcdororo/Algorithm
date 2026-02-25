@@ -1,39 +1,34 @@
-/* /dev/stdin */
-let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+// /dev/stdin
+const fs = require("fs");
+let input = fs
+  .readFileSync("/dev/stdin")
+  .toString()
+  .split("\n")
+  .map((x) => x.replace("\r", ""));
 
+const [N, M] = input[0].split(" ").map(Number);
+const trees = input[1].split(" ").map(Number);
+let answer = 0;
 
-const N = Number(input[0].split(' ')[0]);
-const M = Number(input[0].split(' ')[1]);
-const tree = input[1].split(' ').map(Number);
-  
-let start = 1;
-let end = Math.max(...tree);
-let result = 0;
+let left = 0;
+let right = Math.max(...trees);
 
-while(start <= end) {
-  let mid = parseInt((start + end) / 2);
-  let total = 0;
-  for(x of tree) {
-    let temp = 0;
-    if (x - mid < 0) {
-      temp = 0;
-    } else {
-      temp = x - mid;
+while (left <= right) {
+  const mid = Math.floor((left + right) / 2);
+
+  let high = 0;
+  for (const tree of trees) {
+    if (tree >= mid) {
+      high += tree - mid;
     }
-      
-    total += temp;    
   }
 
-  if(total >= M) {
-    result = mid;
-    start = mid + 1;
+  if (M <= high) {
+    answer = mid;
+    left = mid + 1;
+  } else {
+    right = mid - 1;
   }
-  if(total < M) {
-    end = mid - 1;
-  }
-
-  
 }
 
-console.log(result);
+console.log(answer);
