@@ -1,21 +1,41 @@
-// dev/stdin
+// /dev/stdin
 const fs = require("fs");
-let input = fs.readFileSync("dev/stdin").toString().split('\n').map(String);
+let input = fs
+  .readFileSync("/dev/stdin")
+  .toString()
+  .split("\n")
+  .map((x) => x.replace("\r", ""));
 
-const a = Number(input[0]);
-const arrInput = [...input];
+const N = Number(input[0]);
+let answer = "";
 
-for(let i = 1; i <= a; i++){
-  while(true){
-    if(arrInput[i].indexOf('()') !== -1){
-      arrInput[i] = arrInput[i].replace('()','');
-    } else {
-      break;
+for (let i = 1; i <= N; i++) {
+  const word = input[i];
+  const stack = [];
+  let isVPS = true;
+  for (const v of word) {
+    if (v === "(") {
+      stack.push("(");
+      continue;
+    }
+
+    if (v === ")") {
+      if (stack.length === 0) {
+        isVPS = false;
+        break;
+      } else {
+        stack.pop();
+      }
+
+      continue;
     }
   }
-  if(arrInput[i].includes(')') || arrInput[i].includes('(')){
-    console.log('NO')
+  //console.log(stack);
+  if (isVPS && stack.length === 0) {
+    answer += "YES \n";
   } else {
-    console.log('YES')
+    answer += "NO \n";
   }
 }
+
+console.log(answer);
