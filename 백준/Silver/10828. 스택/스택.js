@@ -1,34 +1,43 @@
-// dev/stdin
-// ./input.txt
-const array = require('fs').readFileSync('dev/stdin').toString().split('\n');
+// /dev/stdin
+const input = require("fs")
+  .readFileSync("/dev/stdin")
+  .toString()
+  .trim()
+  .split("\n")
+  .map((x) => x.replace("\r", ""));
 
-const stack = [];
-const result = [];
+const N = Number(input[0]);
+const STACK = [];
+let answer = "";
 
-const len = array.shift();
+for (let i = 1; i <= N; i++) {
+  const cmd = input[i];
 
-for (let i = 0; i < len; i++) {        
-    switch(array[i]) {
-        case 'pop': 
-          result.push(stack.pop() || -1);
-          break;
+  if (cmd.startsWith("push")) {
+    const val = Number(cmd.split(" ")[1]);
+    STACK.push(val);
+    continue;
+  }
 
-        case 'size': 
-          result.push(stack.length);
-          break;
+  if (cmd === "pop") {
+    answer += (STACK.length ? STACK.pop() : -1) + "\n";
+    continue;
+  }
 
-        case 'empty': 
-          result.push(stack[0] ? 0 : 1);
-          break;
+  if (cmd === "size") {
+    answer += STACK.length + "\n";
+    continue;
+  }
 
-        case 'top': 
-          result.push(stack[stack.length - 1] || -1);
-          break;
+  if (cmd === "empty") {
+    answer += (STACK.length === 0 ? 1 : 0) + "\n";
+    continue;
+  }
 
-        default: 
-          stack.push(array[i].split(" ")[1]);
-          break;
-    }
+  if (cmd === "top") {
+    answer += (STACK.length > 0 ? STACK[STACK.length - 1] : -1) + "\n";
+    continue;
+  }
 }
 
-console.log(result.join('\n'));
+console.log(answer);
