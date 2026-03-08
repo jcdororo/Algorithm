@@ -1,23 +1,27 @@
-/* /dev/stdin */
-let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+// /dev/stdin
+const fs = require("fs");
+let input = fs
+  .readFileSync("/dev/stdin")
+  .toString()
+  .split("\n")
+  .map((x) => x.replace("\r", ""));
 
-const count = parseInt(input[0].split(' ')[0]);
-let price = parseInt(input[0].split(' ')[1]);
-const arrCoins = [];
-let coinCount = 0;
+let [N, K] = input[0].split(" ").map(Number);
+const coins = [];
+for (let i = N; i > 0; i--) {
+  coins.push(input[i]);
+}
+let answer = 0;
 
-for(let i = 1; i < count + 1; i++) {
-  arrCoins.push(parseInt(input[i]));
+while (K > 0) {
+  for (const coin of coins) {
+    if (K >= coin) {
+      K -= coin;
+      break;
+    }
+  }
+
+  answer++;
 }
 
-// arrCoins.sort((a,b) => b - a);
-
-
-for(let i = arrCoins.length - 1; i >= 0; i--) {
-    coinCount += parseInt(price / arrCoins[i]);
-    price %= arrCoins[i];
-  
-}
-
-console.log(coinCount);
+console.log(answer);
