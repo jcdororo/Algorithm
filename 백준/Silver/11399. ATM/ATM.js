@@ -1,17 +1,19 @@
-/* /dev/stdin */
-let fs = require('fs');
-let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+// /dev/stdin
+const input = require("fs")
+  .readFileSync("/dev/stdin")
+  .toString()
+  .trim()
+  .split("\n")
+  .map((x) => x.replace("\r", ""));
 
-const count = parseInt(input[0]);
-const arr = input[1].split(' ').map(Number);
-let temp = 0;
+const N = Number(input[0]);
+const arr = input[1].split(" ").map(Number);
+arr.sort((a, b) => a - b);
+
 let answer = 0;
-
-arr.sort((a,b) => a - b);
-
-for(let i = 0; i < arr.length; i++){
-  temp += arr[i];
+let temp = 0;
+for (const v of arr) {
+  temp += v;
   answer += temp;
 }
-
-console.log(answer)
+console.log(answer);
